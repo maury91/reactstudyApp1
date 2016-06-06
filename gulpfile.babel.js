@@ -32,11 +32,11 @@ function bundle() {
             console.error( '\nError: ', error.message, '\n');
             this.emit('end');
         })
-        .pipe(exorcist('dist/app.js.map'))
+        .pipe(exorcist('public/app.js.map'))
         .pipe(source('app.js'))
         .pipe(buffer())
         .pipe(ifElse(process.env.NODE_ENV === 'production', uglify))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('public'));
 }
 
 gulp.task('default', ['transpile']);
