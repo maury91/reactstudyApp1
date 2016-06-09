@@ -42,3 +42,4 @@ jspm_packages
 .DS_Store
 /public/app.js
 /public/app.js.map
+public/app*

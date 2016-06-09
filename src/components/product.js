@@ -2,9 +2,13 @@ import React from 'react';
 
 export default class Product extends React.Component {
 
-    handleVote(upVote) {
-        this.props.onVote(this.props.id, upVote);
-    }
+    handleUpVote = () => {
+        this.props.onVote(this.props.id, true);
+    };
+
+    handleDownVote = () => {
+        this.props.onVote(this.props.id, false);
+    };
 
     render() {
         return (
@@ -14,10 +18,10 @@ export default class Product extends React.Component {
                 </div>
                 <div className='middle aligned content'>
                     <div className='header'>
-                        <a onClick={() => this.handleVote(true) }>
+                        <a onClick={this.handleUpVote}>
                             <i className='large caret up icon'></i>
                         </a>
-                        <a onClick={() => this.handleVote(false) }>
+                        <a onClick={this.handleDownVote}>
                             <i className="large caret down icon"></i>
                         </a>
                         {this.props.votes}
